@@ -1,0 +1,60 @@
+<%- include ../layouts/header.ejs %>
+
+<div>
+		<input type="text" name="keyword" value="" id="keyword" />
+		<input type="button" name="search" value='Search' onClick="booksearch()"  class="btn btn-primary"/>
+
+	<h3>Searched for : <%= keyword %></h3>
+	<div class="row" id="books">
+<% if (data) {%>
+<% data.forEach(function(book){ %>
+						<div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= book.title %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= book.isbn %></h6>
+
+                        <div>Author: <%= book.author %></div>
+                        <div>Publisher: <%= book.category %></div>
+
+                        <hr>
+                    </div>
+				</div>
+				<input type="button" name="savebook" value='Save Book' onClick="savebook('<%=book._id%>','<%=book.title%>','<%=book.isbn%>','<%=book.author%>','<%=book.category%>')"  class="btn btn-primary"/>
+            </div>
+	<% }) %>
+	<% }else if(data.length == 0) { %>
+					<div class="col-md-12"> <%= data.length %> No Data Found</div>
+	<% } %>
+	</div>
+
+</div>
+
+
+<%- include ../layouts/footer.ejs %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+function booksearch(){
+	let keyword = $('#keyword').val();
+	window.location = "/search/"+keyword;
+	console.log('came')
+
+}
+
+function savebook(id,title,isbn,author,category){
+	
+	$.ajax({
+		method:'POST',
+		url: "/savebook",
+		dataType: "json",
+		data: {id:id,title:title,isbn:isbn,author:author,category:category},
+		success: function(data){
+			if(data.success == true){
+				alert('book saved');
+			}
+		}
+	});
+
+
+}
+</script>

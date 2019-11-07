@@ -1,0 +1,36 @@
+<%- include ../layouts/header.ejs %>
+
+
+<table width='80%' border=0 class="table table-bordered">
+
+	<tr style='text-align:left; background-color:#CCC'>
+		<th>Title</th>
+		<th>ISBN</th>
+		<th>Author</th>
+		<th>Category</th>
+		<th>Action</th>
+	</tr>
+	<% if (data) { %>
+	<% data.forEach(function(book){ %>
+		<tr>
+			<td><%= book.title %></td>
+			<td><%= book.isbn %></td>
+			<td><%= book.author %></td>
+			<td><%= book.category %></td>
+			<td>
+				<div style="float:left">
+					<a href='/books/edit/<%= book._id %>' class="btn btn-primary">Edit</a> &nbsp;
+					<form method="post" action="/books/delete/<%= book._id %>" style="float:right">
+						<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')"  class="btn btn-danger" />
+						<input type="hidden" name="_method" value="DELETE" />
+					</form>
+				</div>
+			</td>
+		</tr>
+	<% }) %>
+	<% } %>
+
+</table>
+
+
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,32 @@
+{
+  "name": "mongoose-express-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "~0.8.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-sanitizer": "^1.0.5",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.2.0",
+    "mongoose": "^5.7.8",
+    "morgan": "~1.5.2",
+    "node-gyp": "^6.0.1",
+    "nodemon": "^1.19.4",
+    "passport": "^0.4.0",
+    "passport-facebook": "~2.0.0",
+    "passport-google-oauth": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "rebuild": "^0.1.2"
+  }
+}

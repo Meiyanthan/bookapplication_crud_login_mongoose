@@ -1,0 +1,32 @@
+<%- include ../layouts/header.ejs %>
+
+
+
+<form action="/books/edit/<%= id %>" method="post" name="form1">
+	<table width="25%" border="0">
+		<tr>
+			<td>Title</td>
+			<td><input type="text" name="title" id="title" value="<%= title %>" /></td>
+		</tr>
+		<tr>
+			<td>ISBN</td>
+			<td><input type="text" name="isbn" value="<%= isbn %>" /></td>
+		</tr>
+		<tr>
+			<td>Author</td>
+			<td><input type="text" name="author" value="<%= author %>" /></td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td><input type="text" name="category" value="<%= category %>" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="Submit" value="Update" class="btn btn-success" /></td>
+		</tr>
+	</table>
+	<input type="hidden" name="_method" value="PUT" />
+</form>
+
+
+<%- include ../layouts/footer.ejs %>

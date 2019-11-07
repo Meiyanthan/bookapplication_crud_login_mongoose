@@ -1,0 +1,31 @@
+<%- include ../layouts/header.ejs %>
+
+
+
+<form action="/books/add" method="post" name="form1">
+	<table width="25%" border="0">
+		<tr>
+			<td>Title</td>
+			<td><input type="text" name="title" id="title" value="<%= title %>" required></td>
+		</tr>
+		<tr>
+			<td>ISBN</td>
+			<td><input type="text" name="isbn" value="<%= isbn %>" required></td>
+		</tr>
+		<tr>
+			<td>Author</td>
+			<td><input type="text" name="author" value="<%= author %>" required></td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td><input type="text" name="category" value="<%= category %>" required></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="Submit" value="Add" class="btn btn-success float-right" /></td>
+		</tr>
+	</table>
+</form>
+
+
+<%- include ../layouts/footer.ejs %>

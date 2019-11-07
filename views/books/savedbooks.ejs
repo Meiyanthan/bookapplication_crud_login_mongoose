@@ -1,0 +1,26 @@
+<%- include ../layouts/header.ejs %>
+
+
+<table width='80%' border=0 class="table table-bordered">
+
+	<tr style='text-align:left; background-color:#CCC'>
+		<th>Title</th>
+		<th>ISBN</th>
+		<th>Author</th>
+		<th>Category</th>
+	</tr>
+	<% if (data) { %>
+	<% data.forEach(function(book){ %>
+		<tr>
+			<td><%= book.title %></td>
+			<td><%= book.isbn %></td>
+			<td><%= book.author %></td>
+			<td><%= book.category %></td>
+		</tr>
+	<% }) %>
+	<% } %>
+
+</table>
+
+
+<%- include ../layouts/footer.ejs %>
