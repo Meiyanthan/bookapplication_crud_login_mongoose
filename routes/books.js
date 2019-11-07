@@ -33,19 +33,16 @@ router.get('/',isLoggedIn, function(req, res){
 // Saved LIST OF BOOKS
 router.get('/savedlist',isLoggedIn, function(req, res){
   SavedBook.find({ "userid": req.session.passport.user }).exec(function(err, booklist){
-    console.log(booklist);
-    console.log('************');
+
     var resArr = [];
     booklist.filter(function(item){
       var i = resArr.findIndex(x => x.book_id == item.book_id);
-      //console.log(i)
       if(i <= -1){
           resArr.push({book_id: item.book_id, title: item.title, isbn: item.isbn, author: item.author, category: item.category});
       }
       return null;
     });
-    //console.log(resArr);
-    //return false;
+
       if(err) {
           req.flash('error', err)
           res.render('books/savedbooks', {
